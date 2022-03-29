@@ -1,0 +1,20 @@
+.front,
+.back {
+	width: 100px;
+	height: 120px;
+	border-radius: 12px;
+	box-shadow: 0px 0px 10px -5px;
+	transition: 0.6s;
+	cursor: pointer;
+	transform-style: preserve-3d;
+	font-size: xx-large;
+}
+
+.front {
+	background: black;
+	color: white;
+}
+.back {
+	background: white;
+	transform: rotateY(-180deg);
+}

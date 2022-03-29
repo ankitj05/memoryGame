@@ -1,0 +1,6 @@
+.score-container {
+	margin: 20px 20px 0px 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
