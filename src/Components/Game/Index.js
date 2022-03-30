@@ -57,6 +57,14 @@ function Game() {
 		}
 	}
 
+	const checkCompletion = () => {
+		console.log("check completion", matchedCards)
+		if (Object.keys(matchedCards).length === data.length) {
+			window.alert(`Game Complete. You took ${moves} moves to finish the game.`)
+			handleRestart()
+		}
+	}
+
 	useEffect(() => {
 		let timeout = null
 		if (openCards.length === 2) {
@@ -76,10 +84,11 @@ function Game() {
 	}
 
 	const handleRestart = () => {
-		if (window.confirm("are you sure you want to leave?")) {
+		if (window.confirm("You want to reset the game?")) {
 			setMatchedCards({})
 			setOpenCards([])
 			setMoves(0)
+			setMatches(0)
 			setCards(shuffleCards(data.concat(data)))
 		}
 	}
@@ -87,13 +96,17 @@ function Game() {
 	useEffect(() => {
 		const unloadCallback = (event) => {
 			event.preventDefault()
-			event.returnValue = ""
+			event.returnValue = "are you sure you want to leave?"
 			return ""
 		}
 
 		window.addEventListener("beforeunload", unloadCallback)
 		return () => window.removeEventListener("beforeunload", unloadCallback)
 	}, [openCards])
+
+	useEffect(() => {
+		checkCompletion()
+	}, [matchedCards])
 
 	return (
 		<div>

@@ -10,11 +10,16 @@
 	font-size: xx-large;
 }
 
-.front {
+.card-container .front {
 	background: black;
 	color: white;
 }
-.back {
+
+.card-container .back {
 	background: white;
 	transform: rotateY(-180deg);
+}
+
+.inactive {
+	opacity: 0;
 }
