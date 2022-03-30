@@ -58,10 +58,11 @@ function Game() {
 	}
 
 	const checkCompletion = () => {
-		console.log("check completion", matchedCards)
 		if (Object.keys(matchedCards).length === data.length) {
-			window.alert(`Game Complete. You took ${moves} moves to finish the game.`)
-			handleRestart()
+			setTimeout(() => {
+				window.alert(`Game Complete. You took ${moves} moves to finish the game.`)
+				handleRestart()
+			}, 300)
 		}
 	}
 
