@@ -1,17 +1,7 @@
-name: release
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types:
-      - closed
-
-jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      # Bump version on merging Pull Requests with specific labels.
-      # (bump:major,bump:minor,bump:patch)
-      - uses: haya14busa/action-bumpr@v1
+- name: Bump Versions
+  # You may pin to the exact commit or the version.
+  # uses: remorses/bump-version@bcb347631544a8b9b146bf5de4548376c1f71661
+  uses: remorses/bump-version@v8
+  with:
+    # Version file to bump path
+    version_file: # optional, default is VERSION
