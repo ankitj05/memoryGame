@@ -1,5 +1,16 @@
-name: Bump Versions
-  uses: remorses/bump-version@js
-  with:
-    # Version file to bump path
-    version_file: # optional, default is VERSION
+name: Publish
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  bump-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: alirezatheh/auto-bump-versions@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          new-version: 1.2.3
+          use-bumpver: true
