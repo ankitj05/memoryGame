@@ -1,7 +1,5 @@
 name: Bump Versions
-  # You may pin to the exact commit or the version.
-  # uses: remorses/bump-version@bcb347631544a8b9b146bf5de4548376c1f71661
-  uses: remorses/bump-version@v8
+  uses: remorses/bump-version@js
   with:
     # Version file to bump path
     version_file: # optional, default is VERSION
