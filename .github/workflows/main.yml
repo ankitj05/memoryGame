@@ -10,3 +10,4 @@ jobs:
         with:
           action: prerelease
           version-file: package.json
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
