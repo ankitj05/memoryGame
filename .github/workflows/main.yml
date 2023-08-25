@@ -1,16 +1,12 @@
-name: Publish
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
-
+    branches: [main]
 jobs:
-  bump-versions:
+  prerelease:
     runs-on: ubuntu-latest
     steps:
-      - uses: alirezatheh/auto-bump-versions@v1
+      - uses: actions/checkout@v2
+      - uses: scaffoldly/bump-version-action@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          new-version: 1.2.3
-          use-bumpver: true
+          action: prerelease
+          version-file: package.json
